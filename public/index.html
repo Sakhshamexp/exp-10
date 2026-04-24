@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <h1 class="nav-title">🎓 Student Management System</h1>
+      <span class="nav-badge">Experiment 10 | Node.js + MongoDB</span>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="main-layout">
+      <!-- Left Column: Add/Edit Form -->
+      <div class="card form-card">
+        <h2 class="section-title" id="formTitle">Add New Student</h2>
+        
+        <form id="studentForm">
+          <input type="hidden" id="editId">
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              placeholder="Full Name" 
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              placeholder="Email Address" 
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="course">Course / Branch</label>
+            <input 
+              type="text" 
+              id="course" 
+              placeholder="Course / Branch" 
+              required
+            >
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              Add Student
+            </button>
+            <button type="button" id="clearBtn" class="btn btn-ghost">
+              Clear Form
+            </button>
+          </div>
+          
+          <div id="formMsg" class="form-message"></div>
+        </form>
+      </div>
+
+      <!-- Right Column: Student Records Table -->
+      <div class="card table-card">
+        <div class="table-header">
+          <h2 class="section-title">
+            All Students 
+            <span class="count-badge" id="studentCount">0</span>
+          </h2>
+          <button id="refreshBtn" class="btn btn-icon">🔄 Refresh</button>
+        </div>
+        
+        <div class="table-container">
+          <div id="spinner" class="spinner"></div>
+          <div id="tableMessage" class="table-message"></div>
+          <table id="studentTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Created At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Student rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
